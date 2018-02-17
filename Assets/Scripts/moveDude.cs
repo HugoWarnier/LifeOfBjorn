@@ -4,7 +4,43 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
+
 public class moveDude : MonoBehaviour {
+
+	/*
+	 * GUI
+	 */
+
+	public Image Spell1Icon;
+	public Image Spell2Icon;
+	public Image Spell3Icon;
+	public Image Spell4Icon;
+
+	public Text Cooldown1;
+	public Text Cooldown2;
+	public Text Cooldown3;
+	public Text Cooldown4;
+
+	public Sprite Spell1IconImage;
+	public Sprite Spell2IconImage;
+	public Sprite Spell3IconImage;
+	public Sprite Spell4IconImage;
+
+	public Sprite Spell1IconImageA;
+	public Sprite Spell2IconImageA;
+	public Sprite Spell3IconImageA;
+	public Sprite Spell4IconImageA;
+
+
+	private float MaxHpPlayer = 100;
+	private float HpPlayer = 80;
+	public Image healthBar;
+	public Text healthPoint;
+
+	private float MaxManaPlayer = 100;
+	private float ManaPlayer = 60;
+	public Image ManaBar;
+	public Text ManaPoint;
 
 	/*
 	 *  Movement
@@ -25,7 +61,6 @@ public class moveDude : MonoBehaviour {
 	/*
 	 *  Attack
 	 */
-
 	public Transform spellSpawnOne;
 	public Transform spellSpawnTwo;
 	public Transform spellSpawnThree;
@@ -36,21 +71,6 @@ public class moveDude : MonoBehaviour {
 	public GameObject spellThree;
 	public GameObject spellFour;
 
-	public Image Spell1Icon;
-	public Image Spell2Icon;
-	public Image Spell3Icon;
-	public Image Spell4Icon;
-
-	public Sprite Spell1IconImage;
-	public Sprite Spell2IconImage;
-	public Sprite Spell3IconImage;
-	public Sprite Spell4IconImage;
-
-	public Sprite Spell1IconImageA;
-	public Sprite Spell2IconImageA;
-	public Sprite Spell3IconImageA;
-	public Sprite Spell4IconImageA;
-
 	private float timeStamp1 = 0;
 	private float timeStamp2 = 0;
 	private float timeStamp3 = 0;
@@ -59,30 +79,18 @@ public class moveDude : MonoBehaviour {
 	void Start () {		
 		mAnimator = GetComponent<Animator> ();
 		mAgent = GetComponent<NavMeshAgent> ();
-		/*
-		Object tmp1A = Resources.Load("Weapon_19");
 
-		Spell1IconImageA =  (Sprite) tmp1A;
-		Spell2IconImageA;
-		Spell3IconImageA;
-		Spell4IconImageA;
-
-		Object tmp1 = Resources.Load("Weapon_19_inactive");
-		Spell1IconImage = (Sprite) tmp1;
-		Spell2IconImage;
-	    Spell3IconImage;
-		Spell4IconImage;
-		*/
 	}
 
 	void Update ()
 	{
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		RaycastHit hit;
 
 		/*
 		 *  Click to Move  
 	 	*/
+
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		RaycastHit hit;
 
 		if (Input.GetMouseButtonDown (0)) {
 			if (Physics.Raycast(ray, out hit, 100 )){
@@ -112,6 +120,8 @@ public class moveDude : MonoBehaviour {
 			mRunning = true;
 		}
 
+		mAnimator.SetBool ("running", mRunning);
+
 		/*
 		 *  Attack
 	 	*/
@@ -134,7 +144,10 @@ public class moveDude : MonoBehaviour {
 			launchSpellThree();
 		}
 
-		if (timeStamp4 <= Time.time) {		
+		if (timeStamp4 <= Time.time) {	
+			
+			Text myText = Cooldown4.GetComponent<Text> ();
+			myText.text =  "";
 
 			Spell4Icon.GetComponent<Image> ().sprite = Spell4IconImageA;
 
@@ -143,9 +156,22 @@ public class moveDude : MonoBehaviour {
 				timeStamp4 = Time.time + 3;
 				Spell4Icon.GetComponent<Image> ().sprite = Spell4IconImage;
 			}
+		} else {
+			
+			Text myText = Cooldown4.GetComponent<Text> ();
+			myText.text =  (Mathf.Round(timeStamp4-Time.time)).ToString();	
 		}
 
-		mAnimator.SetBool ("running", mRunning);
+		/*
+		 *  Health Management
+		 */ 
+
+		healthPoint.text = HpPlayer.ToString();
+		healthBar.fillAmount = HpPlayer/100;
+
+		ManaPoint.text = ManaPlayer.ToString();
+		ManaBar.fillAmount = ManaPlayer/100;
+
 	}
 
 	void launchSpellOne (){
@@ -166,7 +192,7 @@ public class moveDude : MonoBehaviour {
 			bullet.transform.LookAt (v);
 		}
 
-		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 10;
+		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 15;
 
 		Destroy(bullet, 2.0f);        
 	}
@@ -178,9 +204,10 @@ public class moveDude : MonoBehaviour {
 		var bullet = (GameObject)Instantiate(
 			spellTwo,
 			spellSpawnTwo.position,
-			spellSpawnTwo.rotation);
+			spellSpawnTwo.rotation);		
 
-		bullet.GetComponent<Rigidbody>().velocity = new Vector3(0,-5,0);
+		bullet.GetComponent<Rigidbody> ().velocity = bullet.transform.forward * 30;
+		bullet.GetComponent<Rigidbody> ().AddTorque(new Vector3(0, 3000,0));
 
 		Destroy(bullet, 2.0f);        
 	}
@@ -202,7 +229,7 @@ public class moveDude : MonoBehaviour {
 
 	void launchSpellFour(){
 		
-		Debug.Log ("Spell Three");
+		Debug.Log ("Spell Four");
 
 		var bullet1 = (GameObject)Instantiate(
 			spellFour,
