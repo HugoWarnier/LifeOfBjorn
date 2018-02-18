@@ -125,23 +125,52 @@ public class moveDude : MonoBehaviour {
 		/*
 		 *  Attack
 	 	*/
-		if (timeStamp1 <= Time.time) {			
+		if (timeStamp1 <= Time.time) {
+
+			Text myText = Cooldown1.GetComponent<Text> ();
+			myText.text =  "";
 
 			Spell1Icon.GetComponent<Image>().sprite = Spell1IconImageA;
-
 			if (Input.GetKeyDown(KeyCode.Alpha1)) {			
 				launchSpellOne ();
 				timeStamp1 = Time.time + 1;
 				Spell1Icon.GetComponent<Image>().sprite = Spell1IconImage;
 			} 
+		} else {
+			Text myText = Cooldown1.GetComponent<Text> ();
+			myText.text =  (Mathf.Round(timeStamp1-Time.time)).ToString();	
 		}
 
+		if (timeStamp2 <= Time.time) {	
+			
+			Text myText = Cooldown2.GetComponent<Text> ();
+			myText.text =  "";
 
-		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			launchSpellTwo();
+			Spell2Icon.GetComponent<Image>().sprite = Spell2IconImageA;
+			if (Input.GetKeyDown (KeyCode.Alpha2)) {
+				launchSpellTwo ();
+				timeStamp2 = Time.time + 1;
+				Spell2Icon.GetComponent<Image> ().sprite = Spell2IconImage;
+			}		
+		} else {
+			Text myText = Cooldown2.GetComponent<Text> ();
+			myText.text =  (Mathf.Round(timeStamp2-Time.time)).ToString();	
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			launchSpellThree();
+
+		if (timeStamp3 <= Time.time) {
+
+			Text myText = Cooldown3.GetComponent<Text> ();
+			myText.text =  "";
+
+			Spell3Icon.GetComponent<Image>().sprite = Spell3IconImageA;
+			if (Input.GetKeyDown(KeyCode.Alpha3)) {			
+				launchSpellThree ();
+				timeStamp3 = Time.time + 4;
+				Spell3Icon.GetComponent<Image>().sprite = Spell3IconImageA;
+			} 
+		} else {
+			Text myText = Cooldown1.GetComponent<Text> ();
+			myText.text =  (Mathf.Round(timeStamp3-Time.time)).ToString();	
 		}
 
 		if (timeStamp4 <= Time.time) {	
@@ -205,9 +234,18 @@ public class moveDude : MonoBehaviour {
 			spellTwo,
 			spellSpawnTwo.position,
 			spellSpawnTwo.rotation);		
+	
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		RaycastHit hit;
+
+		if (Physics.Raycast(ray, out hit, 100 )){
+			Vector3 v = hit.point;
+			v.y = spellSpawnTwo.position.y;
+			bullet.transform.LookAt (v);
+		}
 
 		bullet.GetComponent<Rigidbody> ().velocity = bullet.transform.forward * 30;
-		bullet.GetComponent<Rigidbody> ().AddTorque(new Vector3(0, 3000,0));
+		bullet.GetComponent<Rigidbody> ().AddTorque(new Vector3(0, 10000,0));
 
 		Destroy(bullet, 2.0f);        
 	}

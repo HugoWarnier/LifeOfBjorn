@@ -6,7 +6,8 @@ public class cameraController : MonoBehaviour {
 	public GameObject player;
 
 	private Vector3 offset;
-
+	Ray ray;
+	RaycastHit hit;
 	void Start ()
 	{
 		offset = transform.position - player.transform.position;
@@ -15,5 +16,7 @@ public class cameraController : MonoBehaviour {
 	void LateUpdate ()
 	{
 		transform.position = player.transform.position + offset;
+
+
 	}
 }
