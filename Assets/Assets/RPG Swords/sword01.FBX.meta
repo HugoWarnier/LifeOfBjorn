@@ -1,10 +1,15 @@
 fileFormatVersion: 2
-guid: dd0682cd55d7f8342b8026ebb1cfc4a5
+guid: 56a3b3edb3a63b347b646f4b7f583fb9
 timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: sword01
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0

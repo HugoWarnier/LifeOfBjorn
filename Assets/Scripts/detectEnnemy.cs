@@ -14,11 +14,9 @@ public class detectEnnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		print (string.Concat("Is Ennemy1 : ",isEnnemy));
-
 	}
 
-	void OnTriggerStay(Collider other) {
+	void OnTriggerStay(Collider other) {		
 		if (other.tag == "Player") {
 			pos = other.transform.position;
 			isEnnemy = true;

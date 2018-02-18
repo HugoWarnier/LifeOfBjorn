@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ennemyController : MonoBehaviour {
 
+
 	private float wanderRadius = 10;
 	private float wanderTimer = 5;
 	private Animator mAnimator;
@@ -13,16 +14,19 @@ public class ennemyController : MonoBehaviour {
 	public float currentHp;
 	public float maxHp;
 
+	private float timeStamp = 0;
+	private GameObject autoAttack;
+
 	private detectEnnemy detection;
 	private bool isEnnemy;
-
 	private Transform target;
 	private NavMeshAgent agent;
 	private float  timer;
 
 
 	void Start(){
-		
+		autoAttack = GameObject.Find ("triggerAttack");
+			autoAttack.SetActive (false);
 	}
 
 	// Use this for initialization
@@ -38,11 +42,20 @@ public class ennemyController : MonoBehaviour {
 
 		detection = GetComponentInChildren<detectEnnemy> ();
 		isEnnemy = detection.isEnnemy;
-		print (string.Concat("Is Ennemy2 : ",isEnnemy));
 
 		if (isEnnemy) {
 			Vector3 t = detection.pos;
-			agent.SetDestination (t) ;			
+			agent.SetDestination (t) ;
+
+			if (timeStamp <= Time.time) {
+				autoAttack.SetActive (true);
+				timeStamp = Time.time + 1;
+				mAnimator.SetBool ("attack", true);
+			} else {
+				mAnimator.SetBool ("attack", false);
+				autoAttack.SetActive (false);
+			}
+
 		} else {
 			timer += Time.deltaTime;
 			if (timer >= wanderTimer) {							
@@ -60,13 +73,9 @@ public class ennemyController : MonoBehaviour {
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) {
 		
 		Vector3 randDirection = Random.insideUnitSphere * dist;
-
 		randDirection += origin;
-
 		NavMeshHit navHit;
-
 		NavMesh.SamplePosition (randDirection, out navHit, dist, layermask);
-
 		return navHit.position;
 	}
 

@@ -306,4 +306,10 @@ public class moveDude : MonoBehaviour {
 		Destroy(bullet4, 2.0f);    
 		Destroy(bullet5, 2.0f);    
 	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Fire") {
+			HpPlayer -= 10;
+		}
+	}
 }

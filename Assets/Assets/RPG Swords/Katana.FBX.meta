@@ -1,10 +1,15 @@
 fileFormatVersion: 2
-guid: 43cf19174db63f549b650fd48a60e071
+guid: d54e07781e9a2cc409cadb8f50e0c5e2
 timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: katana
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
