@@ -99,7 +99,7 @@ public class moveDude : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Return)) {
 			Debug.Log ("0");
 			isEnterPressed = true;
-			timeStampEnter = Time.time + 1;
+			timeStampEnter = Time.time + 0.5f;
 		}
 		if (timeStampEnter <= Time.time) {
 			isEnterPressed = false;
