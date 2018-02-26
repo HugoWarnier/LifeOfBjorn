@@ -76,14 +76,35 @@ public class moveDude : MonoBehaviour {
 	private float timeStamp3 = 0;
 	private float timeStamp4 = 0;
 
+	/*
+	 * Events 
+	 */
+
+	public bool isEnterPressed;
+	private float timeStampEnter = 0;
+
 	void Start () {		
 		mAnimator = GetComponent<Animator> ();
 		mAgent = GetComponent<NavMeshAgent> ();
+		isEnterPressed = false;
 
 	}
 
 	void Update ()
 	{
+		/*
+		 *  Events
+		 */
+
+		if (Input.GetKey (KeyCode.Return)) {
+			Debug.Log ("0");
+			isEnterPressed = true;
+			timeStampEnter = Time.time + 1;
+		}
+		if (timeStampEnter <= Time.time) {
+			isEnterPressed = false;
+		}
+
 
 		/*
 		 *  Click to Move  
