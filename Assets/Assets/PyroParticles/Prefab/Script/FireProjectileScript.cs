@@ -69,15 +69,11 @@ namespace DigitalRuby.PyroParticles
         public void HandleCollision(GameObject obj, Collision c)
         {
             if (collided)
-            {				
+            {
                 // already collided, don't do anything
                 return;
             }
-			/*
-			Debug.Log (c.collider.tag);
-			if (c.collider.tag == "ennemy") {
-				Destroy (c.collider.gameObject);
-			}*/
+
             // stop the projectile
             collided = true;
             Stop();

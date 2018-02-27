@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 4216755574643218}
   - component: {fileID: 33617637360709200}
   - component: {fileID: 23841170876114066}
-  - component: {fileID: 64858610151693188}
   m_Layer: 0
   m_Name: daguer1
   m_TagString: Untagged
@@ -72,7 +71,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4923869507659268}
   - component: {fileID: 33413747707153814}
-  - component: {fileID: 65162404352057916}
   - component: {fileID: 23066687577071402}
   - component: {fileID: 54265520508640874}
   - component: {fileID: 65110133151404334}
@@ -379,20 +377,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!64 &64858610151693188
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1242592709827914}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: f2443b42ced046746aaa8cc1eb29862c, type: 3}
 --- !u!65 &65110133151404334
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -405,15 +389,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.955854, y: 1, z: 10.237188}
   m_Center: {x: 0.11722088, y: 0, z: 0.023446083}
---- !u!65 &65162404352057916
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1409297369888566}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
