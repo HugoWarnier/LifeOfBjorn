@@ -32,12 +32,12 @@ public class moveDude : MonoBehaviour {
 	public Sprite Spell4IconImageA;
 
 
-	private float MaxHpPlayer = 100;
+	//private float MaxHpPlayer = 100;
 	private float HpPlayer = 80;
 	public Image healthBar;
 	public Text healthPoint;
 
-	private float MaxManaPlayer = 100;
+	//private float MaxManaPlayer = 100;
 	private float ManaPlayer = 60;
 	public Image ManaBar;
 	public Text ManaPoint;

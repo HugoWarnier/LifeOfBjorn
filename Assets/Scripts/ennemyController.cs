@@ -14,6 +14,8 @@ public class ennemyController : MonoBehaviour {
 	public float currentHp;
 	public float maxHp;
 
+	public TextMesh dealDamage;
+
 	private float timeStamp = 0;
 	private GameObject autoAttack;
 
@@ -23,6 +25,7 @@ public class ennemyController : MonoBehaviour {
 	private NavMeshAgent agent;
 	private float  timer;
 
+	private float displayDamage = 0;
 
 	void Start(){
 		autoAttack = GameObject.Find ("triggerAttack");
@@ -68,6 +71,12 @@ public class ennemyController : MonoBehaviour {
 		if (currentHp <= 0) {
 			Destroy (this.gameObject);
 		}
+
+		if (displayDamage <= Time.time) {
+			displayDamage = Time.time + 0.50f;
+			dealDamage.text = " ";
+		}
+
 	}
 
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) {
@@ -82,15 +91,19 @@ public class ennemyController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "spell_one") {
 			currentHp -= 20;
+			dealDamage.text = "-20";
 		}
 		else if (other.tag == "spell_two") {
 			currentHp -= 20;
+			dealDamage.text = "-20";
 		}
 		else if (other.tag == "spell_three") {
 			currentHp -= 20;
+			dealDamage.text = "-20";
 		}
 		else if (other.tag == "spell_four") {
 			currentHp -= 20;
+			dealDamage.text = "-20";
 		}
 	}
 }
