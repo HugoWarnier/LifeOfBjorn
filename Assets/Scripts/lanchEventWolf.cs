@@ -109,12 +109,15 @@ public class lanchEventWolf : MonoBehaviour {
 						finishedScript = true;
 						break;
 					}
-					if (timeStampDial <= Time.time){ //cooldown sur le "suivant" du dialog 
+					//cooldown sur le "suivant" du dialog 
+					if (timeStampDial <= Time.time){ 
 						timeStampDial = Time.time + 1;
 					  	cpt++;
 					}
 					
-				} else { //si le dialogue n'a pas été lancé , init les dialog
+				} 
+				//si le dialogue n'a pas été lancé , init les dialog
+				else { 
 					launchDial = true;
 					hT.gameObject.SetActive (false);
 					qT.gameObject.SetActive (false);

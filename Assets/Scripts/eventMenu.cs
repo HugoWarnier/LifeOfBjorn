@@ -16,8 +16,19 @@ public class eventMenu : MonoBehaviour {
 		
 	}
 
-	public void bbb(){
+	public void startGame(){
+		// Lance le Jeu
 		SceneManager.LoadScene ("Demo_1");
-		Debug.Log ("Button pressed");
+		Debug.Log ("Start");
+	}
+
+	public void optionsGame(){		
+		// Option du jeu *TODO*
+		Debug.Log ("Options");
+	}
+
+	public void quitGame(){		
+		Debug.Log ("Quit");
+		Application.Quit ();
 	}
 }
