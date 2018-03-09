@@ -110,9 +110,9 @@ public class ennemyController : MonoBehaviour {
 			Destroy(damageIndicator.GetComponent<GameObject>(), 1.0f);
 		}
 		else if (other.tag == "spell_three") {
-			TextMesh damageIndicator = createDamageIndicator (20);
+			TextMesh damageIndicator = createDamageIndicator (10);
 			Destroy(damageIndicator.GetComponent<GameObject>(), 1.0f);
-			currentHp -= 20;
+			currentHp -= 10;
 		}
 		else if (other.tag == "spell_four") {
 			TextMesh damageIndicator = createDamageIndicator (20);

@@ -63,12 +63,13 @@ public class moveDude : MonoBehaviour {
 	 */
 	public Transform spellSpawnOne;
 	public Transform spellSpawnTwo;
-	public Transform spellSpawnThree;
+	//public Transform spellSpawnThree;
 	public Transform spellSpawnFour;
 
+	private GameObject autoAttack;
 	public GameObject spellOne;
 	public GameObject spellTwo;
-	public GameObject spellThree;
+	//public GameObject spellThree;
 	public GameObject spellFour;
 
 	private float timeStamp1 = 0;
@@ -88,6 +89,8 @@ public class moveDude : MonoBehaviour {
 		mAgent = GetComponent<NavMeshAgent> ();
 		isEnterPressed = false;
 
+		autoAttack = GameObject.Find ("triggerAttackHero");
+		autoAttack.SetActive (false);
 	}
 
 	void Update ()
@@ -186,11 +189,13 @@ public class moveDude : MonoBehaviour {
 			Spell3Icon.GetComponent<Image>().sprite = Spell3IconImageA;
 			if (Input.GetKeyDown(KeyCode.Alpha3)) {			
 				launchSpellThree ();
-				timeStamp3 = Time.time + 4;
-				Spell3Icon.GetComponent<Image>().sprite = Spell3IconImageA;
+				timeStamp3 = Time.time + 2;
+				Spell3Icon.GetComponent<Image>().sprite = Spell3IconImage;
 			} 
 		} else {
-			Text myText = Cooldown1.GetComponent<Text> ();
+			mAnimator.SetBool ("attack", false);
+			autoAttack.SetActive (false);        
+			Text myText = Cooldown3.GetComponent<Text> ();
 			myText.text =  (Mathf.Round(timeStamp3-Time.time)).ToString();	
 		}
 
@@ -272,17 +277,9 @@ public class moveDude : MonoBehaviour {
 	}
 
 	void launchSpellThree(){
-		Debug.Log ("Spell Three");
-
-		var bullet = (GameObject)Instantiate(
-			spellThree,
-			spellSpawnThree.position,
-			spellSpawnThree.rotation);
-
-		bullet.GetComponent<Rigidbody>().velocity = new Vector3(0,-5,0);
-
-		// Destroy the bullet after 2 seconds
-		Destroy(bullet, 2.0f);        
+		
+		mAnimator.SetBool ("attack", true);
+		autoAttack.SetActive (true);        
 
 	}
 
