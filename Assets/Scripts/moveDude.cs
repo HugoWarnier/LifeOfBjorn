@@ -117,7 +117,7 @@ public class moveDude : MonoBehaviour {
 		RaycastHit hit;
 
 		if (Input.GetMouseButtonDown (0)) {
-			if (Physics.Raycast(ray, out hit, 100 )){
+			if (Physics.Raycast(ray, out hit, 1000 )){
 
 				if (isWayPoint) {
 					Destroy(currentWayPoint);
