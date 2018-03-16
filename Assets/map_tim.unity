@@ -7185,6 +7185,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -196.48
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: d021512d6de402148a36d287d6cde611, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d021512d6de402148a36d287d6cde611, type: 3}
   m_IsPrefabParent: 0
@@ -7205,11 +7209,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_Speed: 8
+  m_Acceleration: 3000
+  avoidancePriority: 99
+  m_AngularSpeed: 3000
+  m_StoppingDistance: 8
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -11059,6 +11063,11 @@ Prefab:
     - target: {fileID: 4702080916738634, guid: 2015c36777bcd0345add0c6de65a60cc, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 195741742733995312, guid: 2015c36777bcd0345add0c6de65a60cc,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2015c36777bcd0345add0c6de65a60cc, type: 2}
@@ -16102,6 +16111,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 195435701599090802, guid: 2e5b97c9db0a3444aa50e15b5be8611f,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e5b97c9db0a3444aa50e15b5be8611f, type: 2}
   m_IsPrefabParent: 0
@@ -16488,6 +16502,11 @@ Prefab:
     - target: {fileID: 4702080916738634, guid: 2015c36777bcd0345add0c6de65a60cc, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -61.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 195741742733995312, guid: 2015c36777bcd0345add0c6de65a60cc,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2015c36777bcd0345add0c6de65a60cc, type: 2}
@@ -17921,6 +17940,11 @@ Prefab:
     - target: {fileID: 4076178077765404, guid: 2e5b97c9db0a3444aa50e15b5be8611f, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -155.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 195435701599090802, guid: 2e5b97c9db0a3444aa50e15b5be8611f,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e5b97c9db0a3444aa50e15b5be8611f, type: 2}
@@ -19631,7 +19655,7 @@ MonoBehaviour:
   hT: {fileID: 39321689}
   c1: {fileID: 2015354885}
   c2: {fileID: 1815771848}
-  hero: {fileID: 0}
+  hero: {fileID: 2098864599}
   wolf: {fileID: 451301005}
 --- !u!135 &1369356873
 SphereCollider:
@@ -21836,6 +21860,11 @@ Prefab:
     - target: {fileID: 4702080916738634, guid: 2015c36777bcd0345add0c6de65a60cc, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -300.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 195741742733995312, guid: 2015c36777bcd0345add0c6de65a60cc,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2015c36777bcd0345add0c6de65a60cc, type: 2}
@@ -29525,12 +29554,12 @@ Prefab:
     - target: {fileID: 195356445624958284, guid: ce798187cb0d34f478465ab77f344f70,
         type: 2}
       propertyPath: m_AngularSpeed
-      value: 1000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 195356445624958284, guid: ce798187cb0d34f478465ab77f344f70,
         type: 2}
       propertyPath: m_Acceleration
-      value: 1000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 4412114275686728, guid: ce798187cb0d34f478465ab77f344f70, type: 2}
       propertyPath: m_LocalScale.x
@@ -29543,6 +29572,11 @@ Prefab:
     - target: {fileID: 4412114275686728, guid: ce798187cb0d34f478465ab77f344f70, type: 2}
       propertyPath: m_LocalScale.z
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 195356445624958284, guid: ce798187cb0d34f478465ab77f344f70,
+        type: 2}
+      propertyPath: avoidancePriority
+      value: 99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce798187cb0d34f478465ab77f344f70, type: 2}
