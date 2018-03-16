@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -8231,7 +8231,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -14845,7 +14845,7 @@ Camera:
   far clip plane: 1000.01
   field of view: 48
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 34.386177
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -14867,13 +14867,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1020779536}
-  m_LocalRotation: {x: 0.063138895, y: 0, z: 0, w: 0.9980048}
-  m_LocalPosition: {x: 133.06, y: 13.17, z: 2.13}
+  m_LocalRotation: {x: 0.34113583, y: -0, z: -0, w: 0.940014}
+  m_LocalPosition: {x: 131.9, y: 54.31, z: -8.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 7.24, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 39.892002, y: 0, z: 0}
 --- !u!114 &1020779542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26735,7 +26735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1863722538
 Transform:
   m_ObjectHideFlags: 0
