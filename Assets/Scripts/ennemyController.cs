@@ -36,8 +36,6 @@ public class ennemyController : MonoBehaviour {
 	private NavMeshAgent agent;
 	private float  timer;
 
-
-
 	void Start(){
 		autoAttack = GameObject.Find ("triggerAttack");
 		autoAttack.SetActive (false);
@@ -54,7 +52,7 @@ public class ennemyController : MonoBehaviour {
 		//Mort de l'ennemi
 		if (currentHp <= 0) {
 			Destroy (this.gameObject);
-		} else {
+		} else if (currentHp > 0){
 				
 			detection = GetComponentInChildren<detectEnnemy> ();
 			isEnnemy = detection.isEnnemy;
