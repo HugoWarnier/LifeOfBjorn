@@ -9,6 +9,7 @@ public class noreturnSpawn : MonoBehaviour
     public GameObject c2;
     public GameObject c3;
     public GameObject player;
+    public UnityEngine.AI.NavMeshAgent mAgent;
     private moveDude mD;
 
     // Transform of the camera to shake. Grabs the gameObject's transform
@@ -28,7 +29,7 @@ public class noreturnSpawn : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        mAgent = player.GetComponent<UnityEngine.AI.NavMeshAgent>();
         mD = player.GetComponent<moveDude>();
         c1.SetActive(false);
         c3.SetActive(false);
@@ -58,6 +59,7 @@ public class noreturnSpawn : MonoBehaviour
         {
             declanched = true;
             mD.enabled = false;
+            mAgent.SetDestination(player.transform.position);
             shakeDuration = 3;
             c1.SetActive(true);
             c3.SetActive(true);
