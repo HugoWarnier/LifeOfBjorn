@@ -51,41 +51,43 @@ public class ennemyController : MonoBehaviour {
 	}
 	
 	void Update () {	
-
-		detection = GetComponentInChildren<detectEnnemy> ();
-		isEnnemy = detection.isEnnemy;
-
-		if (isEnnemy) {
-			Vector3 t = detection.pos;
-			agent.SetDestination (t) ;
-
-			if (timeStamp <= Time.time) {
-				autoAttack.SetActive (true);
-				timeStamp = Time.time + 1;
-				mAnimator.SetBool ("attack", true);
-			} else {
-				mAnimator.SetBool ("attack", false);
-				autoAttack.SetActive (false);
-			}
-
-		} else {
-			timer += Time.deltaTime;
-			if (timer >= wanderTimer) {							
-				Vector3 newPos = RandomNavSphere (transform.position, wanderRadius, -1);
-				agent.SetDestination (newPos);
-				timer = 0;
-			}
-		}
-
 		//Mort de l'ennemi
 		if (currentHp <= 0) {
 			Destroy (this.gameObject);
+		} else {
+				
+			detection = GetComponentInChildren<detectEnnemy> ();
+			isEnnemy = detection.isEnnemy;
+
+			if (isEnnemy) {
+				Vector3 t = detection.pos;
+				agent.SetDestination (t);
+
+				if (timeStamp <= Time.time) {
+					autoAttack.SetActive (true);
+					timeStamp = Time.time + 1;
+					mAnimator.SetBool ("attack", true);
+				} else {
+					mAnimator.SetBool ("attack", false);
+					autoAttack.SetActive (false);
+				}
+
+			} else {
+				timer += Time.deltaTime;
+				if (timer >= wanderTimer) {							
+					Vector3 newPos = RandomNavSphere (transform.position, wanderRadius, -1);
+					agent.SetDestination (newPos);
+					timer = 0;
+				}
+			}
 		}
-		/*
-		if (displayDamage <= Time.time) {
-			displayDamage = Time.time + 0.50f;
-			dealDamage.text = " ";
-		}*/
+			
+
+			/*
+			if (displayDamage <= Time.time) {
+				displayDamage = Time.time + 0.50f;
+				dealDamage.text = " ";
+			}*/
 
 	}
 
