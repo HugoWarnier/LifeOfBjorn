@@ -18,7 +18,7 @@ public class eventMenu : MonoBehaviour {
 
 	public void startGame(){
 		// Lance le Jeu
-		SceneManager.LoadScene ("Demo_1");
+		SceneManager.LoadScene ("map_tim");
 		Debug.Log ("Start");
 	}
 
