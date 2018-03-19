@@ -13,6 +13,9 @@ public class gameController : MonoBehaviour {
 	public GameObject t3;
 	public GameObject t4;
 
+	public GameObject Im;
+
+
 	//Script à desactiver pnd la pause
 	public GameObject player;
 	private moveDude mD;
@@ -28,6 +31,8 @@ public class gameController : MonoBehaviour {
 		t2.SetActive (false);
 		t3.SetActive (false);
 		t4.SetActive (false);
+
+		Im.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -43,6 +48,7 @@ public class gameController : MonoBehaviour {
 				t2.SetActive (false);
 				t3.SetActive (false);
 				t4.SetActive (false);
+				Im.SetActive (false);
 			} else {
 				Time.timeScale = 0;
 				mD.enabled = false;
@@ -51,6 +57,7 @@ public class gameController : MonoBehaviour {
 				t2.SetActive (true);
 				t3.SetActive (true);
 				t4.SetActive (true);
+				Im.SetActive (true);
 
 			}
 			isPlay = !isPlay;
@@ -65,6 +72,8 @@ public class gameController : MonoBehaviour {
 			t2.SetActive (false);
 			t3.SetActive (false);
 			t4.SetActive (false);
+			Im.SetActive (false);
+
 		} 				
 	}
 }
