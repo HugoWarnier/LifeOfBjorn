@@ -90,7 +90,7 @@ public class moveDude : MonoBehaviour {
 		isEnterPressed = false;
 
 		autoAttack = GameObject.Find ("triggerAttackHero");
-		autoAttack.SetActive (false);
+		autoAttack.gameObject.SetActive (false);
 	}
 
 	void Update ()
@@ -157,7 +157,7 @@ public class moveDude : MonoBehaviour {
 			Spell1Icon.GetComponent<Image>().sprite = Spell1IconImageA;
 			if (Input.GetKeyDown(KeyCode.Alpha1)) {			
 				launchSpellOne ();
-				timeStamp1 = Time.time + 1;
+				timeStamp1 = Time.time + 2;
 				Spell1Icon.GetComponent<Image>().sprite = Spell1IconImage;
 			} 
 		} else {
@@ -194,7 +194,7 @@ public class moveDude : MonoBehaviour {
 			} 
 		} else {
 			mAnimator.SetBool ("attack", false);
-			autoAttack.SetActive (false);        
+			autoAttack.gameObject.SetActive (false);        
 			Text myText = Cooldown3.GetComponent<Text> ();
 			myText.text =  (Mathf.Round(timeStamp3-Time.time)).ToString();	
 		}
@@ -279,7 +279,7 @@ public class moveDude : MonoBehaviour {
 	void launchSpellThree(){
 		
 		mAnimator.SetBool ("attack", true);
-		autoAttack.SetActive (true);        
+		autoAttack.gameObject.SetActive (true);
 
 	}
 

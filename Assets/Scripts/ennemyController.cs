@@ -62,12 +62,12 @@ public class ennemyController : MonoBehaviour {
 				agent.SetDestination (t);
 
 				if (timeStamp <= Time.time) {
-					autoAttack.SetActive (true);
+					autoAttack.gameObject.SetActive (true);
 					timeStamp = Time.time + 1;
 					mAnimator.SetBool ("attack", true);
 				} else {
 					mAnimator.SetBool ("attack", false);
-					autoAttack.SetActive (false);
+					autoAttack.gameObject.SetActive (false);
 				}
 
 			} else {
@@ -79,14 +79,6 @@ public class ennemyController : MonoBehaviour {
 				}
 			}
 		}
-			
-
-			/*
-			if (displayDamage <= Time.time) {
-				displayDamage = Time.time + 0.50f;
-				dealDamage.text = " ";
-			}*/
-
 	}
 
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) {		
@@ -100,8 +92,8 @@ public class ennemyController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		
 		if (other.tag == "spell_one") {
-			currentHp -= 20;
-			TextMesh damageIndicator = createDamageIndicator (20);
+			currentHp -= 50;
+			TextMesh damageIndicator = createDamageIndicator (50);
 			Destroy(damageIndicator.GetComponent<GameObject>(), 1.0f);
 		}
 		else if (other.tag == "spell_two") {
